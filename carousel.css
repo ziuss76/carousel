@@ -1,0 +1,31 @@
+.carousel-container {
+  width: 400px;
+  height: 400px;
+  border: 0px solid #000;
+  position: relative;
+  overflow: hidden;
+}
+.carousel-slide {
+  display: flex;
+  width: 100%;
+}
+#prevBtn {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0%, -50%);
+  width: 45px;
+  height: 45px;
+  border: none;
+  cursor: pointer;
+}
+#nextBtn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0%, -50%);
+  width: 45px;
+  height: 45px;
+  border: none;
+  cursor: pointer;
+}
