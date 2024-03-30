@@ -6,7 +6,8 @@ const nextBtn = document.querySelector("#nextBtn");
 
 let cnt = 1;
 const size = carouselImgs[0].clientWidth;
-carouselSlide.style.transform = "translateX(" + -size * cnt + "px)";
+const getTranslateX = () => `translateX(${-size * cnt}px)`;
+carouselSlide.style.transform = getTranslateX();
 // 현재 html 에는 마지막 이미지가 첫번째 이미지로 복제되어 있으므로 한번 오른쪽으로 이동시키기
 
 nextBtn.addEventListener("click", () => {
@@ -15,14 +16,14 @@ nextBtn.addEventListener("click", () => {
   // 부등호가 있는 이유는 마지막 이미지로 이동하기 전에 또 클릭이 되어서 cnt 가 증가되는 것을 방지하기 위함
   carouselSlide.style.transition = "transform 0.4s ease-in-out";
   cnt++;
-  carouselSlide.style.transform = "translateX(" + -size * cnt + "px)";
+  carouselSlide.style.transform = getTranslateX();
 });
 
 prevBtn.addEventListener("click", () => {
   if (cnt <= 0) return;
   carouselSlide.style.transition = "transform 0.4s ease-in-out";
   cnt--;
-  carouselSlide.style.transform = "translateX(" + -size * cnt + "px)";
+  carouselSlide.style.transform = getTranslateX();
 });
 
 // 슬라이드 이동이 마지막이나 첫번째 클론에 도달했을 때 (위에서 일시정지를 했을 때)
@@ -33,13 +34,13 @@ carouselSlide.addEventListener("transitionend", () => {
     // 슬라이드 이동 애니메이션을 제거해 순간이동 시킬 준비
 
     cnt = carouselImgs.length - 2;
-    carouselSlide.style.transform = "translateX(" + -size * cnt + "px)";
+    carouselSlide.style.transform = getTranslateX();
     // 슬라이드를 클론이 아닌 실제 마지막 이미지로 이동
   }
 
   if (carouselImgs[cnt].id === "firstClone") {
     carouselSlide.style.transition = "none";
-    cnt = carouselImgs.length - cnt;
-    carouselSlide.style.transform = "translateX(" + -size * cnt + "px)";
+    cnt = carouselImgs.length - cnt; // 7(길이) - 6(마지막인 현재 카운트) = 1(처음 카운트)
+    carouselSlide.style.transform = getTranslateX();
   }
 });

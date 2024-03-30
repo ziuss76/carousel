@@ -1,9 +1,10 @@
 .carousel-container {
-  width: 400px;
-  height: 400px;
+  width: 720px;
+  height: 480px;
   border: 0px solid #000;
   position: relative;
   overflow: hidden;
+  border-radius: 10px;
 }
 .carousel-slide {
   display: flex;
@@ -18,6 +19,14 @@
   height: 45px;
   border: none;
   cursor: pointer;
+  opacity: 0.4;
+  transition: ease-in-out 0.15s;
+  border-top-right-radius: 25%;
+  border-bottom-right-radius: 25%;
+}
+#prevBtn:hover {
+  transition: ease-in-out 0.15s;
+  opacity: 0.8;
 }
 #nextBtn {
   position: absolute;
@@ -28,4 +37,12 @@
   height: 45px;
   border: none;
   cursor: pointer;
+  opacity: 0.4;
+  transition: ease-in-out 0.15s;
+  border-top-left-radius: 25%;
+  border-bottom-left-radius: 25%;
+}
+#nextBtn:hover {
+  transition: ease-in-out 0.15s;
+  opacity: 0.8;
 }
